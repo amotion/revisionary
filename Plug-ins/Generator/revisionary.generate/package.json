@@ -1,0 +1,11 @@
+{
+  "name": "revisionary-sync",
+  "version": "1.0.0",
+  "description": "Sync generator for Revisionary",
+  "main": "main.js",
+  "generator-core-version": "~1",
+  "dependencies": {
+    "dropbox": "0.10.2",
+    "pngjs": "0.4.0"
+  }
+}
