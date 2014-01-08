@@ -1,6 +1,6 @@
 # Revisionary 0.2
 
-Send flattened PNG revisions to Dropbox from within Photoshop
+Save PNG revisions to Dropbox from within Photoshop
 
 ## Installation
 
