@@ -2,6 +2,8 @@
 
 Save PNG revisions to Dropbox from within Photoshop
 
+[![ScreenShot](http://dl.dropboxusercontent.com/u/150461267/revisionary_video.png)](https://vimeo.com/83720153)
+
 ## Installation
 
 * Copy Plug-ins/Generator/revisionary.generate -> /Applications/Photoshop CC/Plug-ins/Generator/
