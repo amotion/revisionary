@@ -1,4 +1,4 @@
-# Revisionary 0.2
+# Revisionary
 
 Save PNG revisions to Dropbox from within Photoshop
 
