@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Authorize Dropbox</title>
+    <script type="text/javascript" charset="utf-8" src="./lib/jquery-2.0.3.js"></script>
+    <script type="text/javascript" charset="utf-8">
+      $(function () {
+
+        var setting =
+          {
+            'host':     "dropbox.com/1/"
+          , 'clientId': "ohu15auk3qwy1za"
+          , 'redirectUri': "https://dl.dropboxusercontent.com/spa/h1ldnk9rekqf3yp/DBRevisionary/public/index.html"
+          };
+
+        var authHost     = "https://"     + setting.host;
+        var resourceHost = "https://api." + setting.host;
+        var endUserAuthorizationEndpoint = authHost + "oauth2/authorize";
+
+		    var authUrl = endUserAuthorizationEndpoint +
+            "?response_type=token" +
+            "&client_id="    + setting.clientId +
+            "&redirect_uri=" + setting.redirectUri;
+
+        $('div.authenticate').show();
+        $("a.connect").attr("href", authUrl);
+
+        window.location = authUrl;
+
+      });
+    </script>
+    <style>
+      body {
+      	background-color: #1D83DB;
+      	color: #fff;
+      	font-family: HelveticaNeue, Helvetica, Arial, sans-serif;
+      }
+      .hidden {
+        display: none;
+      }
+      .connect {
+      	display: inline-block;
+      	vertical-align: top;
+      	width: 300px;
+      	text-align: center;
+      	border: 1px solid #fff;
+      	color: #fff;
+      	text-decoration: none;
+      	border-radius: 6px;
+      	padding: 15px 15px 17px;
+      	font-weight: 500;
+      	margin-top: 60px;
+      	font-size: 18px;
+      }
+      .connect:hover {
+      	background-color: #fff;
+      	color: #1D83DB;
+      }
+      .authenticate {
+      	text-align: center;
+      	padding: 50px 10px;
+      }
+      h1 {
+      	font-weight: 500;
+      }
+      p {
+      	color: rgba(255,255,255,0.75);
+      	font-size: 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="authenticate hidden">
+    	<h1>Authorize Dropbox</h1>
+    	<p>Connect your Revisionary to Dropbox below.</p>
+      	<a class="connect" href="">Connect Dropbox</a>
+    </div>
+  </body>
+</html>

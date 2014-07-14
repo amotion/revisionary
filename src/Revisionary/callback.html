@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Dropbox OAuth 2 User Agent Authentication Flow Demo</title>
+    <script type="text/javascript" charset="utf-8" src="//code.jquery.com/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript" charset="utf-8">
+      $(function () {
+
+        var url_params = document.location.hash.split('#')[1].split('&');
+        var url_hash = {};
+
+        $.each(url_params, function (index,item) {
+          var p = item.split('=');
+          url_hash[p[0]] = p[1];
+        })
+
+        var setting =
+          {
+            'host':     "dropbox.com/1/"
+          , 'clientId': "ohu15auk3qwy1za"
+          , 'redirectUri': "https://dl.dropboxusercontent.com/spa/h1ldnk9rekqf3yp/DBRevisionary/public/index.html"
+          };
+
+        var authHost     = "https://"     + setting.host;
+        var resourceHost = "https://api." + setting.host;
+
+        var endUserAuthorizationEndpoint = authHost + "oauth2/authorize";
+
+        var token = url_hash['access_token'];
+        var type = url_hash['token_type'];
+
+        type = type.charAt(0).toUpperCase() + type.slice(1);
+
+        if (token) {
+          $('div.authenticated').show();
+          $.ajax({
+              url: resourceHost + 'account/info'
+            , beforeSend: function (xhr) {
+                xhr.setRequestHeader('Authorization', type + " " + token);
+                xhr.setRequestHeader('Accept', "application/json");
+              }
+            , success: function (response) {
+                $('span.code').text(response.uid + '::' + type + '::' + token);
+              }
+            , error: function (response) {
+            }
+          });
+        } else {
+          var authUrl = endUserAuthorizationEndpoint +
+            "?response_type=token" +
+            "&client_id="    + setting.clientId +
+            "&redirect_uri=" + setting.redirectUri;
+
+          $('div.authenticate').show();
+          $("a.connect").attr("href", authUrl);
+        }
+      });
+    </script>
+    <style>
+      body {
+        background-color: #4cd964;
+        color: #fff;
+        font-family: HelveticaNeue, Helvetica, Arial, sans-serif;
+      }
+      .hidden {
+        display: none;
+      }
+      .authenticated {
+        text-align: center;
+        padding: 50px 10px;
+      }
+      h1 {
+        font-weight: 500;
+      }
+      p {
+        color: rgba(255,255,255,0.75);
+        font-size: 14px;
+      }
+      .code {
+        width: 400px;
+        display: block;
+        margin: 60px auto 0;
+        word-break: break-all;
+        border-radius: 6px;
+        background-color: #fff;
+        color: #333;
+        padding: 20px;
+        font-size: 14px;
+        min-height: 30px;
+      }
+      ::selection {
+        background-color: #FFA;
+        color: #000;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="authenticate hidden">
+      <h1>Authorize Dropbox</h1>
+      <a class="connect" href="">Connect Dropbox</a>
+    </div>
+    <div class="authenticated hidden">
+      <h1>Copy the code below</h1>
+      <p>Then open Photoshop and paste in the extension panel</p>
+      <span class="code"></span>
+    </div>
+  </body>
+</html>

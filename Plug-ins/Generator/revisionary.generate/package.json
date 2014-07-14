@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Sync generator for Revisionary",
   "main": "main.js",
-  "generator-core-version": "~1",
+  "generator-core-version": "~2",
   "dependencies": {
     "dropbox": "0.10.2",
     "pngjs": "0.4.0"

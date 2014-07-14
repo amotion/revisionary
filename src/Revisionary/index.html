@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link id="ppstyle" rel="stylesheet" type="text/css" href="./style.css">
+		<link href="./webfonts/ss-standard.css" rel="stylesheet">
+		<link href="./webfonts/ss-social-regular.css" rel="stylesheet">
+		<title>Revisionary</title>
+	</head>
+	<body onLoad="onLoaded()">
+		<div id="content">
+			<div id="actions">
+				<div id="action-bar"><button id="save-png">Save Revision</button></div>
+				<ul class="items"></ul>
+			</div>
+			<div id="settings">
+				<div id="connect-settings">
+					<h4>Account</h4>
+					<ul class="fields">
+						<li>
+							<label>
+								<strong>Connect</strong>
+								<button id="auth-db">Authorize Dropbox</button>
+							</label>
+						</li>
+					</ul>
+				</div>
+				<div id="advanced-settings">
+					<h4>Advanced</h4>
+					<ul class="fields">
+						<li>
+							<label>
+								<strong>Key</strong>
+								<input id="rev-client-key" value="">
+							</label>
+						</li>
+						<li>
+							<label>
+								<strong>Uid</strong>
+								<input id="db-id" value="" placeholder="12345">
+							</label>
+						</li>
+						<li>
+							<label>
+								<strong>Token</strong>
+								<input id="db-token" value="" placeholder="">
+							</label>
+						</li>
+						<li class="omega">
+							<label>
+								<strong>Type</strong>
+								<input id="db-token-type" value="" placeholder="">
+							</label>
+						</li>
+						<li>
+							<button id="save-settings">Save</button>
+						</li>
+					</ul>
+				</div>
+				<div id="console-settings">
+					<h4>Console</h4>
+					<pre id="console"></pre>
+				</div>
+			</div>
+		</div>
+		<footer id="footer">
+			<div id="footer-wrap">
+				<a href="#" class="toggle-settings" id="settings-button"><span class="ss-icon ss-standard">Settings</span></a>
+				<a href="#" class="toggle-settings" id="settings-done">Done</a>
+				<div id="account"><span class="ss-icon">Dropbox</span></div>
+			</div>
+		</footer>
+		<script src="./lib/CSInterface-4.0.0.js"></script>
+		<script src="./lib/jquery-2.0.3.js"></script>
+		<script src="./lib/dropbox.min.js"></script>
+		<script src="./lib/spin.js"></script>
+		<script src="./lib/jquery.spin.js"></script>
+		<script src="./ext.js"></script>
+		<script src="./app.js"></script>
+	</body>
+</html>

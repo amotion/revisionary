@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ExtensionManifest ExtensionBundleId="com.jukely.Revisionary" ExtensionBundleName="Revisionary" ExtensionBundleVersion="0.2" Version="4.0">
+  <ExtensionList>
+    <Extension Id="com.jukely.Revisionary.extension1" Version="1.0"/>
+  </ExtensionList>
+  <ExecutionEnvironment>
+    <HostList>
+      <Host Name="PHXS" Version="[14.0,14.9]"/>
+    </HostList>
+    <LocaleList>
+      <Locale Code="All"/>
+    </LocaleList>
+    <RequiredRuntimeList>
+      <RequiredRuntime Name="CSXS" Version="4.0"/>
+    </RequiredRuntimeList>
+  </ExecutionEnvironment>
+  <DispatchInfoList>
+    <Extension Id="com.jukely.Revisionary.extension1">
+      <DispatchInfo>
+        <Resources>
+          <MainPath>./index.html</MainPath>
+          <ScriptPath>./Revisionary.jsx</ScriptPath>
+        </Resources>
+        <Lifecycle>
+          <AutoVisible>true</AutoVisible>
+        </Lifecycle>
+        <UI>
+          <Type>Panel</Type>
+          <Menu>Revisionary</Menu>
+          <Geometry>
+            <Size>
+              <Height>400</Height>
+              <Width>400</Width>
+            </Size>
+          </Geometry>
+        </UI>
+      </DispatchInfo>
+    </Extension>
+  </DispatchInfoList>
+</ExtensionManifest>
